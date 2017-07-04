@@ -1,0 +1,8 @@
+<h1>{{ company.name }}</h1>
+{% for user in users %}
+    <div class="user">
+    	<h3><a href="{% url 'user' company.id user.id %}">{{ user }}</h3></a>
+    </div>
+{% empty %}
+    <p>Aucun user.</p>
+{% endfor %}

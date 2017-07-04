@@ -19,4 +19,5 @@ from django.http import HttpResponse
 
 urlpatterns = [
     url(r'^company/', include('company.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 ]
