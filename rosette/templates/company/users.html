@@ -1,0 +1,8 @@
+<h1>Users</h1>
+{% for user in users %}
+    <div class="user">
+    	<h3><a href="{% url 'userprofile' user.userprofile.id %}">{{ user.username }}</h3></a>
+    </div>
+{% empty %}
+    <p>Aucun user.</p>
+{% endfor %}

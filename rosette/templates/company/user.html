@@ -1,4 +1,6 @@
 <!-- <h1>Bienvenue sur le blog des crêpes bretonnes !</h1> -->
 
 <h1>{{ user.username }}</h1>
-<p class="infos">Id:  {{ user.id }}</p>
+<p class="infos">user_id = {{ user.id }}</p>
+<p class="infos">profile_id = {{ user.userprofile.id }}</p>
+<p class="infos">company_name = {{ user.userprofile.company }}</p>

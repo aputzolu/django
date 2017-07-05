@@ -15,7 +15,6 @@ urlpatterns = [
     url(r'^(\d+)/user/(\d+)$', views.user, name='user'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^company/$', views.company, name='company'),
-    url(r'^user/$', views.addUser, name='user'),
     # url(r'^(\d+)$', views.view_company), 
     # url(r'^date$', views.date_actuelle),
     # url(r'^addition/(?P<nombre1>\d+)/(?P<nombre2>\d+)/$', views.addition),

@@ -8,7 +8,7 @@ from company.models import Company
 from user.models import UserProfile
 from django.contrib.auth.models import User
 
-from .forms import ContactForm, CompanyForm, UserForm
+from .forms import ContactForm, CompanyForm
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
@@ -97,31 +97,3 @@ def company(request):
     
     # Quoiqu'il arrive, on affiche la page du formulaire.
     return render(request, 'company/company.html', locals())
-
-def addUser(request):
-    # Construire le formulaire, soit avec les données postées,
-    # soit vide si l'utilisateur accède pour la première fois
-    # à la page.
-    # form = CompanyForm(request.POST or None)
-    # Nous vérifions que les données envoyées sont valides
-    # Cette méthode renvoie False s'il n'y a pas de données 
-    # dans le formulaire ou qu'il contient des erreurs.
-    form = UserForm(request.POST or None)
-    if form.is_valid():
-        # form.save()
-        name = form.cleaned_data['name']
-        company = form.cleaned_data['company']
-        comp = Company.objects.get(name=company)
-        use = User.objects.create_user(name, 'mathieu@crepes-bretonnes.com', 'sup3rp@ssw0rd')
-        pro = UserProfile(user=use, company=comp)
-        pro.company = comp
-        use.save()
-
-    #     
-    # Nous pourrions ici envoyer l'e-mail grâce aux données 
-    #     # que nous venons de récupérer
-    #     envoi = True
-    
-    # Quoiqu'il arrive, on affiche la page du formulaire.
-    return render(request, 'company/addUser.html', locals())
-
